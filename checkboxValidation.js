@@ -1,4 +1,5 @@
-//Either can be used; start with onEdit and take it from there. You might wanna take one of the functions off, depending on what button orientation you're needing to validate.
+// Either can be used; start with onEdit and take it from there. You might wanna take one of the functions off, depending on what button orientation you're needing to validate.
+// source: https://kierandixon.com/radio-buttons-google-sheets/
 
 function onEdit(e) {
 //HORIZONTAL CHECKBOXES
