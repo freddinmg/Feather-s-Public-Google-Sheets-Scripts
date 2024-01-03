@@ -1,0 +1,11 @@
+"Update 3.11 (12/31/23)"
+=(SUM(U3:U1000)+SUMIFS(D:D,S:S,"yes")) &" out of "& SUM(D3:D1000) & " goals "
+
+"Update 3.21 (12/31/23)"
+=SUMIF($S:$S,'BG Stuff'!AD8,$K:K)+SUMIF($S:$S,'BG Stuff'!AD7,$K:K)
+
+"Update 3.31 (12/31/23)"
+=IFERROR((IF((SUM(U3:U1000) + SUMIFS(D3:D1000, S3:S1000,"yes"))/SUM(D3:D1000) < 0.33, GoodPhrase, IF((SUM(U3:U1000) + SUMIFS(D3:D1000,S3:S1000,"yes")) / SUM(D3:D1000) >= 1, BestPhrase, IF(AND((SUM(U3:U1000) + SUMIFS(D3:D1000, S3:S1000, "yes") / SUM(D3:D1000)) >= 0.33, (SUM(U3:U1000) + SUMIFS(D3:D1000,S3:S1000,"yes") / SUM(D3:D1000) < 0.67)), BetterPhrase, BetterPhrase)))), ZeroPhrase)
+
+"Update 4.21 (1/1/24)"
+=HYPERLINK("[[Spreadsheet link including numbers after "gid=", no square brackets, REMEMBER to put in that open quote to the left of these brackets]]&range=I"& COUNTA(I3:I)-5, "To Latest")
