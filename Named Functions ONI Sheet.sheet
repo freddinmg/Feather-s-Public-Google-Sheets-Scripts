@@ -1,20 +1,22 @@
+NOTE: All pictures are found in the branch "Relevent-Data-Ranges."
+
 "COLUMNNUMBERTOLETTER"
 "This converts a number (usually gathered from a COLUMN formula) into a letter."
 =regexextract(address(1,INDIRECT(cell)),"[A-Z]+")
 
 "C_TEMP_CONVERT"
 "Based on 3 tables provided on a backend spreadsheet, this converts a given value into Fahrenheit, Kelvin, or Mixed (the values on the Display page.)" 
-"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around. (See Temperature_Settings.png and RT_Q1-R9.png)"
 =IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$41,Display!$G$2='Reference Tables'!$R$7),temperature,IF(Display!$G$2='Reference Tables'!$R$9,CONVERT(temperature,"C","K"),IF(Display!$G$2='Reference Tables'!$R$8,(CONVERT(temperature,"C","F")))))),"(?)")
 
 "K_TEMP_CONVERT"
 "Based on 3 tables provided on a backend spreadsheet, this converts a given value into Fahrenheit, Celsius, or Mixed (the values on the Display page.)"
-"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around. (See Temperature_Settings.png and RT_Q1-R9.png)"
 =IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$43,Display!$G$2='Reference Tables'!$R$9),temperature,IF(Display!$G$2='Reference Tables'!$R$8,CONVERT(temperature,"K","F"),IF(Display!$G$2='Reference Tables'!$R$7,(CONVERT(temperature,"K","C")))))),"(?)")
 
 "F_TEMP_CONVERT"
 "Based on 3 tables provided on a backend spreadsheet, this converts a given value into Kelvin, Celsius, or Mixed (the values on the Display page.)"
-"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+"HOW IT WORKS: One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44) and the temperature scale being converted to. The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around. (See Temperature_Settings.png and RT_Q1-R9.png)"
 =IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$8,Display!$G$2='Reference Tables'!$R$8),temperature,IF(Display!$G$2='Reference Tables'!$R$9,CONVERT(temperature,"F","K"),IF(Display!$G$2='Reference Tables'!$R$7,(CONVERT(temperature,"F","C")))))),"(?)")
 
 "NEW_CONDENSE"
@@ -23,11 +25,11 @@
 
 "EXTRACTELEMENTTAGS"
 "Print the tags for each element specified."
-"HOW IT WORKS: [pending]"
+"HOW IT WORKS: The formula looks up the elements' states in AllElementsStates (see RT_AllElementsFullTitles_2-1.png, RT_AllElementsFullTitles_2-2.png, and RT_AllElementsFullTitles_2-3.png) and the tag range (see RT_X25-R19.png) to choose a sheet in which to look. Then, it looks at those searched elements on their relevant tag pages and gathers each property that has a 'yes' beside it. "
 =JOIN(" | ",FILTER(INDIRECT(CONCATENATE(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,3,FALSE),"A1:A14")),INDIRECT(CONCATENATE(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,3,FALSE),COLUMNNUMBERTOLETTER(MATCH(cell1,INDIRECT(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,5,FALSE)),0)),"1:",COLUMNNUMBERTOLETTER(MATCH(cell1,INDIRECT(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,5,FALSE)),0)),"14"))="yes"))
 
 "EXTRACT_TAGS_OTHER"
-"HOW IT WORKS: [pending]"
+"HOW IT WORKS: This formula is used to get all the tags for the compared elements and print them all to two cells on 'Display.' It uses a table (see )"
 "All the functions EXTRACT_TAGS_OTHER, EXTRACT_TAGS_STONE, and EXTRACT_TAGS_METAL use a variation of this formula. DynamicTagHelp is a table that shows the addresses of the first row and columns (to the last value.)"
 =IFERROR((JOIN(" | ",FILTER(INDIRECT(INDEX(DynamicTagHelp,4,6)),INDIRECT(CONCATENATE((INDEX(DynamicTagHelp,4,2)),COPY_COLUMNCONVERTANDROW((MATCH(cell1,INDIRECT(INDEX(DynamicTagHelp,4,5)),0)))))="yes"))),"none")
 
