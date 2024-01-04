@@ -1,0 +1,21 @@
+"COLUMNNUMBERTOLETTER"
+"This converts a number (usually gathered from a COLUMN formula) into a letter."
+=regexextract(address(1,INDIRECT(cell)),"[A-Z]+")
+
+"C_TEMP_CONVERT"
+"Based on 3 tables provided on a backend spreadsheet, this converts a given value into Fahrenheit, Kelvin, or Mixed (the values on the Display page); One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44.) The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+=IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$41,Display!$G$2='Reference Tables'!$R$7),temperature,IF(Display!$G$2='Reference Tables'!$R$9,CONVERT(temperature,"C","K"),IF(Display!$G$2='Reference Tables'!$R$8,(CONVERT(temperature,"C","F")))))),"(?)")
+
+"K_TEMP_CONVERT"
+"Based on 3 tables provided on a backend spreadsheet, this converts a given value into Fahrenheit, Celsius, or Mixed (the values on the Display page); One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44.) The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+=IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$43,Display!$G$2='Reference Tables'!$R$9),temperature,IF(Display!$G$2='Reference Tables'!$R$8,CONVERT(temperature,"K","F"),IF(Display!$G$2='Reference Tables'!$R$7,(CONVERT(temperature,"K","C")))))),"(?)")
+
+"F_TEMP_CONVERT"
+"Based on 3 tables provided on a backend spreadsheet, this converts a given value into Kelvin, Celsius, or Mixed (the values on the Display page); One table keeps track of the default scale for each page ('Reference Tables'!Q40:S44.) The other 2 on Reference Tables either convert an abbreviation to a scale or the other way around."
+=IFERROR((IF(OR(Display!$G$2='Reference Tables'!$R$6,Display!$G$2='Reference Tables'!$R$8,Display!$G$2='Reference Tables'!$R$8),temperature,IF(Display!$G$2='Reference Tables'!$R$9,CONVERT(temperature,"F","K"),IF(Display!$G$2='Reference Tables'!$R$7,(CONVERT(temperature,"F","C")))))),"(?)")
+
+"NEW_CONDENSE"
+"This takes a range and prints it, only without any blank values"
+=TRANSPOSE(FILTER(range, range<>""))
+
+
