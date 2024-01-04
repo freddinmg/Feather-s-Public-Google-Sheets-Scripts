@@ -29,7 +29,7 @@ NOTE: All pictures are found in the branch "Relevent-Data-Ranges."
 =JOIN(" | ",FILTER(INDIRECT(CONCATENATE(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,3,FALSE),"A1:A14")),INDIRECT(CONCATENATE(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,3,FALSE),COLUMNNUMBERTOLETTER(MATCH(cell1,INDIRECT(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,5,FALSE)),0)),"1:",COLUMNNUMBERTOLETTER(MATCH(cell1,INDIRECT(VLOOKUP(VLOOKUP(cell1,AllElementsStates,2,FALSE),AllTagPgRanges_In,5,FALSE)),0)),"14"))="yes"))
 
 "EXTRACT_TAGS_OTHER"
-"HOW IT WORKS: This formula is used to get all the tags for the compared elements and print them all to two cells on 'Display.' It uses a table (see )"
+"HOW IT WORKS: This formula is used to get all the tags for the solid elements and print them to the proper cell on their proper pages. It uses a table (see DynamicTagHelp.png) to find a row or column to offset. This row or column offset helps creates an accurate cell address for wherever the formula should draw tags."
 "All the functions EXTRACT_TAGS_OTHER, EXTRACT_TAGS_STONE, and EXTRACT_TAGS_METAL use a variation of this formula. DynamicTagHelp is a table that shows the addresses of the first row and columns (to the last value.)"
 =IFERROR((JOIN(" | ",FILTER(INDIRECT(INDEX(DynamicTagHelp,4,6)),INDIRECT(CONCATENATE((INDEX(DynamicTagHelp,4,2)),COPY_COLUMNCONVERTANDROW((MATCH(cell1,INDIRECT(INDEX(DynamicTagHelp,4,5)),0)))))="yes"))),"none")
 
