@@ -1,4 +1,7 @@
 /* @OnlyCurrentDoc */
+
+//See description.
+
 function getSheetUrlFront() {
   var SS = SpreadsheetApp.getActiveSpreadsheet();
   var url = '';
