@@ -1,5 +1,7 @@
 /* @OnlyCurrentDoc */
 
+//See description.
+
 /*function getSheetUrlAndId1() {
   var SS = SpreadsheetApp.getActiveSpreadsheet();
   var ss = SS.getActiveSheet();
