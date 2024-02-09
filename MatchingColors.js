@@ -52,11 +52,9 @@ range.setFontColors(newFormatMatrix);
 //-----------------------------------------
 
 if(tableHead != null) {newFormatMatrix[0].fill(tableHead)};
-console.log(newFormatMatrix[0])
 range.setFontColors(newFormatMatrix);
 
 if(tableFoot != null) {newFormatMatrix[lastRow].fill(tableFoot)};
-console.log(newFormatMatrix[lastRow])
 
 //-----------------------------------------
 
