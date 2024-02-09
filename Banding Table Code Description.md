@@ -6,7 +6,7 @@ The above script will change the text in the relevant ranges to the banding colo
 
 If you're interested in doing the same, these codes should help!
 
-NOTES: 
+_NOTES:_ 
 1. The formulas provided use the above spreadsheet as a reference. So, you will have to change around names and ranges to fit your needs.
 2. The formulas "MatchingColors.js" and "AlternatingColors.js" can be used seperately from each other. You don't need to use both.
 3. If you're using multiple instances of these formulas (AlternatingColors and MatchingColors), it's best to invoke them in a separate function and only run *that* one. An example of what that would look like is shown in "invoke.js".
