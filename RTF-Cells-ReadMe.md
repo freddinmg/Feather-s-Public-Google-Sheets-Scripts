@@ -4,6 +4,8 @@ For a short while, I was obsessed with making a way to add rich text formatting 
 
 Come to find out, I could just get the display value of the previous cell, set it to the same in another cell, and add formatting to the copied display. (Documentation here: https://developers.google.com/apps-script/reference/spreadsheet/range#getDisplayValue() and https://developers.google.com/apps-script/reference/spreadsheet/range#setValue(Object) )
 
+__*EDIT:__ I made the code that allows you to copy the display value of one cell and apply it to another cell. Just in case someone doesn't feel like writing their own code :) https://github.com/freddinmg/Feather-s-Public-Google-Sheets-Scripts/blob/Rich-Text-Formatting-External-Cell/CopyDisplayValue.js 
+
 Well, then, why not make it so that it can be a function? Like, one you could make directly in a cell with a formula?
 
 Come to find out, you can't do that with scripts that require granted permissions. Even if *you* give *yourself* permission to do it.
