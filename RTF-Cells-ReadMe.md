@@ -12,6 +12,6 @@ Come to find out, you can't do that with scripts that require granted permission
 
 Soooo, it ended up having a simple solution that used none of the "features" I had in mind. This is just the result of a vanity project, in that case. If you feel like being ~fancy~ or adding unneccessary steps to this process, do I have something for you! 
 
-This could also be helpful for people who don't understand the rich text builder. you can pick apart this code to see if your changes work.
+This could also be helpful for people who don't understand the rich text builder. You can pick apart this code to see if your changes work.
 
 ...Oh! This also comes with a bit of code that you can run to find where specific words and such are in your sentence, so you don't have to do any counting! As of today, it's located here: https://github.com/freddinmg/Feather-s-Public-Google-Sheets-Scripts/blob/Rich-Text-Formatting-External-Cell/Word-Finding%2C-Character-Indexing.js
